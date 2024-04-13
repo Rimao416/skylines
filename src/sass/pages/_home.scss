@@ -17,6 +17,9 @@
     &__burger {
       display: block;
       cursor: pointer;
+      font-size: 16px;
+      color: $black-color;
+      font-weight: bold;
     }
     &__list {
       display: none !important;
@@ -94,6 +97,10 @@
       font-family: "Araboto-bold";
       color: $black-color;
       font-weight: 600;
+    }
+
+    &.active{
+      display: block;
     }
 
   }

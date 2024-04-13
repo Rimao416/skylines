@@ -5,7 +5,9 @@ import Travel from "../assets/image_2.jpg";
 import { MdTravelExplore } from "react-icons/md";
 // import { BiPlanet } from "react-icons/bi";
 import Button from "../components/Button";
+import { useState } from "react";
 function Home() {
+  const [active, setActive] = useState(false)
   return (
     <section className="header">
       <div className="navigation">
@@ -20,11 +22,11 @@ function Home() {
         <div className="navigation__button">
         <Button title="Prendre rendez-vous" />
         </div>
-        <div className="navigation__burger">
+        <div className="navigation__burger" onClick={() => setActive(!active)}>
           <CiMenuBurger />
         </div>
       </div>
-      <div className="navigation__menu">
+      <div className={`navigation__menu ${active ? "active" : ""}`}>
         <ul className="navigation__menu--list">
         <li className="navigation__item--list">Accueil</li>
           <li className="navigation__item--list">À Propos</li>
