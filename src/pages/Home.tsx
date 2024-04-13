@@ -1,29 +1,36 @@
 // import React from 'react'
-import { IoSearchSharp } from "react-icons/io5";
+// import { IoSearchSharp } from "react-icons/io5";
+import { CiMenuBurger } from "react-icons/ci";
 import Travel from "../assets/image_2.jpg";
 import { MdTravelExplore } from "react-icons/md";
-import { BiPlanet } from "react-icons/bi";
+// import { BiPlanet } from "react-icons/bi";
 import Button from "../components/Button";
 function Home() {
   return (
     <section className="header">
       <div className="navigation">
+        
         <img src="/SKY_3.png" alt="" className="navigation__logo" />
         <ul className="navigation__list">
           <li className="navigation__item">Accueil</li>
           <li className="navigation__item">À Propos</li>
-          <li className="navigation__item">TOP PLACE</li>
+          <li className="navigation__item">Top Place</li>
           <li className="navigation__item">Contact</li>
         </ul>
         <div className="navigation__button">
-          <span className="navigation__button--icon">
-            <IoSearchSharp />
-          </span>
-          <span className="navigation__button--icon">
-            <BiPlanet />
-            <span className="navigation__button--text">FR</span>
-          </span>
+        <Button title="Prendre rendez-vous" />
         </div>
+        <div className="navigation__burger">
+          <CiMenuBurger />
+        </div>
+      </div>
+      <div className="navigation__menu">
+        <ul className="navigation__menu--list">
+        <li className="navigation__item--list">Accueil</li>
+          <li className="navigation__item--list">À Propos</li>
+          <li className="navigation__item--list">Top Place</li>
+          <li className="navigation__item--list">Contact</li>
+        </ul>
       </div>
       <div className="brief">
         <div className="brief__wrapper">
@@ -45,19 +52,11 @@ function Home() {
           <Button title="Prendre rendez-vous" />
         </div>
         <div className="brief__wrapper">
-          <img src={Travel} alt="" />
+          <img src={Travel} alt=""  className="brief__wrapper--image"/>
           <div className="brief__croch--left"></div>
           <div className="brief__croch--right"></div>
           {/* <div className="brief__aesthetic"></div> */}
-          <div className="brief__details">
-            {/* <img src={Travel} alt="" /> */}
-            <h2>
-              <span>
-                <MdTravelExplore />
-              </span>{" "}
-              La destination des Skyline
-            </h2>
-          </div>
+
         </div>
         <div className="brief__wrapper">
         </div>
