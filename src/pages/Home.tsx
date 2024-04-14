@@ -1,6 +1,7 @@
 // import React from 'react'
 // import { IoSearchSharp } from "react-icons/io5";
 import { CiMenuBurger } from "react-icons/ci";
+import { GiHamburgerMenu } from "react-icons/gi";
 import Travel from "../assets/image_2.jpg";
 import { MdTravelExplore } from "react-icons/md";
 // import { BiPlanet } from "react-icons/bi";
@@ -23,15 +24,17 @@ function Home() {
         <Button title="Prendre rendez-vous" />
         </div>
         <div className="navigation__burger" onClick={() => setActive(!active)}>
-          <CiMenuBurger />
+        <GiHamburgerMenu />
         </div>
       </div>
       <div className={`navigation__menu ${active ? "active" : ""}`}>
+      <h3 className="navigation__menu--title">Menu</h3>
         <ul className="navigation__menu--list">
-        <li className="navigation__item--list">Accueil</li>
-          <li className="navigation__item--list">À Propos</li>
-          <li className="navigation__item--list">Top Place</li>
-          <li className="navigation__item--list">Contact</li>
+
+        <li className="navigation__menu--item">Accueil</li>
+          <li className="navigation__menu--item">À Propos</li>
+          <li className="navigation__menu--item">Top Place</li>
+          <li className="navigation__menu--item">Contact</li>
         </ul>
       </div>
       <div className="brief">
