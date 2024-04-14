@@ -43,10 +43,78 @@
     display: flex;
     list-style: none;
     gap: 3rem;
-    // font-family: "Araboto-bold";
-    // font-size: 1.6rem;
-    // font-weight: 600;
+    // background-color: green;
+
     color: $black-color;
+  }
+  &__item{
+    // background-color: green;
+    padding: 10px;
+    &.active{
+      a{
+       @include navhover;
+      }
+    }
+    a{
+      position: relative;
+      text-decoration: none;
+      color: $black-color;
+    &:hover{
+      @include navhover;
+    }
+      span:first-child:before{
+        content: "";
+        position: absolute;
+       top: 0;
+       left: 0;
+       width: 8px;
+       height: 8px;
+       background: transparent;
+       border-left: 2px solid $black-color;
+       border-top: 2px solid $black-color;
+       transition: .2s;
+       opacity:0;
+      }
+      span:first-child:after{
+        content: "";
+        position: absolute;
+       top: 0;
+       right: 0;
+       width: 8px;
+       height: 8px;
+       background: transparent;
+       border-top: 2px solid $black-color;
+       border-right: 2px solid $black-color;
+       transition: .2s;
+       opacity:0;
+      }
+      span:last-child:before{
+        content: "";
+        position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 8px;
+       height: 8px;
+       background: transparent;
+       border-bottom: 2px solid $black-color;
+       border-left: 2px solid $black-color;
+       transition: .2s;
+       opacity:0;
+      }
+      span:last-child:after{
+        content: "";
+        position: absolute;
+       bottom: 0;
+       right: 0;
+       width: 8px;
+       height: 8px;
+       background: transparent;
+       border-bottom: 2px solid $black-color;
+       border-right: 2px solid $black-color;
+       transition: .2s;
+       opacity:0;
+      }    
+    }
   }
   &__button {
     display: flex;
@@ -80,6 +148,32 @@
 
     z-index: 1000;
     font-weight: 500;
+    &--item{
+      // padding: 0;
+      a{
+        position: relative;
+        text-decoration: none;
+        color: $black-color;
+        background-color: transparent;
+      
+      }
+    }
+    &--footer{
+      // display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color:  rgba(250,247,238,1);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      button{
+        width: 100%;
+        padding: 15px;
+
+      }
+    }
     // display: flex;
     // align-items: center;
   // margin: 2rem 8rem 0 8rem;
@@ -87,7 +181,7 @@
   &--title{
     font-size: 14px;
     font-family: "Inter";
-    background-color:rgba(248,152,7,.4);
+    background-color:$orange-color;
     color: $black-color;
     font-weight: 500;
     text-align: center;
@@ -105,29 +199,25 @@
       font-family: "Araboto-bold";
       color: $black-color;
       font-weight: 500;
+
       // font-weight: 600; 
     }
     &--item{
-      padding: 10px;
+      padding:10px 10px 10px 20px;
+      // margin: 0 50px 0 0;
       cursor: pointer;
+      
       &:hover{
         background-color: rgba(248,152,7,.4);
       }
+
     }
 
     &.active{
       display: block;
+    
     }
-    // @include respond(tab-land) { // width < 900px
-    //   padding: 2rem 6rem 0 6rem;
-    // }
-    // @include respond(tab-port) { // width < 600px
-    //   padding: 2rem 4rem 0 4rem;
-    // }
-    // @include respond(phone) { // width < 350px
-    //   padding: 2rem 2rem 0 2rem;
-    // }
-
+ 
   }
 }
 .brief {
@@ -136,13 +226,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // flex-direction: column;
-  // gap: 2rem;
-  // &__wrapper{
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: 1rem;
-  // }
+
   position: relative;
   &__wrapper {
     flex-basis: 45%;

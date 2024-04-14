@@ -18,6 +18,28 @@
         width: 100%;
         height: 100%;
   }
+  @mixin navhover{
+    span:first-child:before{
+      top: -10px;
+      left: -10px;
+      opacity: 1;
+    }
+    span:first-child:after{
+      top: -10px;
+      right: -10px;
+      opacity: 1;
+    }
+    span:last-child:before{
+      bottom: -10px;
+      left: -10px;
+      opacity: 1;
+    }
+    span:last-child:after{
+      bottom: -10px;
+      right: -10px;
+      opacity: 1;
+    }
+  }
   @mixin border{
     // position: absolute;
     // content: "";
@@ -32,6 +54,39 @@
     //   display: none;
     // }
   }
+  @mixin diagonal-border($top, $right, $bottom, $left) {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: transparent;
+      border: 2px solid $black-color;
+      transition: .2s;
+    }
+    
+    &::before {
+      top: $top;
+      left: $left;
+    }
+    
+    &::after {
+      top: $top;
+      right: $right;
+    }
+    
+    &::before {
+      bottom: $bottom;
+      left: $left;
+    }
+    
+    &::after {
+      bottom: $bottom;
+      right: $right;
+    }
+  }
+  
   
   
   // MEDIA QUERY MANAGER
