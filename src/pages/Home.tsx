@@ -1,6 +1,6 @@
 // import React from 'react'
 // import { IoSearchSharp } from "react-icons/io5";
-import { CiMenuBurger } from "react-icons/ci";
+// import { CiMenuBurger } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Travel from "../assets/image_2.jpg";
 import { MdTravelExplore } from "react-icons/md";
