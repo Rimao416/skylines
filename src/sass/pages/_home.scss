@@ -236,7 +236,7 @@
   position: relative;
   &__wrapper {
     flex-basis: 45%;
-    font-size: 1.4rem;
+    font-size: 14px;
 
     color: $black-color;
     &:nth-child(2) {
@@ -290,7 +290,7 @@
     margin-top: 2rem;
   }
   &__text {
-    font-size: 1.6rem;
+    font-size: 14px;
     // font-family: "Araboto-bold";
     display: flex;
     // background-color: red;
@@ -389,8 +389,13 @@
     height: 100%;
   }
   @include respond(tab-land) {
+    padding: 0 16px 0 16px;
+    
+    &__wrapper {
+      flex-direction: column;
+    } 
     &__title {
-      font-size: 3.5rem;
+      // font-size: 3.5rem;
       // color: red;
     }
     &__wrapper{
