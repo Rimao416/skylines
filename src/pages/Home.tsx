@@ -58,33 +58,77 @@ function Home() {
     </li>
   );
   return (
-    <section className="header">
-      <div className="navigation">
-        <img src="/SKY_3.png" alt="" className="navigation__logo" />
-        <ul className="navigation__list">
+    <div className="app">
+      <section className="header">
+        <div className="navigation">
+          <img src="/SKY_3.png" alt="" className="navigation__logo" />
           <ul className="navigation__list">
-            <NavigationItem
+            <ul className="navigation__list">
+              <NavigationItem
+                to="#"
+                text="Accueil"
+                index={0}
+                activeIndex={activeIndex}
+                onClick={handleItemClick}
+              />
+              <NavigationItem
+                to="#"
+                text="À Propos"
+                index={1}
+                activeIndex={activeIndex}
+                onClick={handleItemClick}
+              />
+              <NavigationItem
+                to="#"
+                text="Top Place"
+                index={2}
+                activeIndex={activeIndex}
+                onClick={handleItemClick}
+              />
+              <NavigationItem
+                to="#"
+                text="Contact"
+                index={3}
+                activeIndex={activeIndex}
+                onClick={handleItemClick}
+              />
+            </ul>
+          </ul>
+          <div className="navigation__button">
+            <Button title="Prendre rendez-vous" />
+          </div>
+          <div
+            className="navigation__burger"
+            onClick={() => setActive(!active)}
+          >
+            <GiHamburgerMenu />
+          </div>
+        </div>
+        <div className={`navigation__menu ${active ? "active" : ""}`}>
+          <h3 className="navigation__menu--title">Menu</h3>
+          <ul className="navigation__menu--list">
+            <NavigationItemMenu
               to="#"
               text="Accueil"
               index={0}
               activeIndex={activeIndex}
               onClick={handleItemClick}
             />
-            <NavigationItem
+            <NavigationItemMenu
               to="#"
               text="À Propos"
               index={1}
               activeIndex={activeIndex}
               onClick={handleItemClick}
             />
-            <NavigationItem
+            <NavigationItemMenu
               to="#"
               text="Top Place"
               index={2}
               activeIndex={activeIndex}
               onClick={handleItemClick}
             />
-            <NavigationItem
+            <NavigationItemMenu
               to="#"
               text="Contact"
               index={3}
@@ -92,78 +136,42 @@ function Home() {
               onClick={handleItemClick}
             />
           </ul>
-        </ul>
-        <div className="navigation__button">
-          <Button title="Prendre rendez-vous" />
+          <div className="navigation__menu--footer">
+            <Button title="Prendre rendez-vous" />
+          </div>
         </div>
-        <div className="navigation__burger" onClick={() => setActive(!active)}>
-          <GiHamburgerMenu />
-        </div>
-      </div>
-      <div className={`navigation__menu ${active ? "active" : ""}`}>
-        <h3 className="navigation__menu--title">Menu</h3>
-        <ul className="navigation__menu--list">
-          <NavigationItemMenu
-            to="#"
-            text="Accueil"
-            index={0}
-            activeIndex={activeIndex}
-            onClick={handleItemClick}
-          />
-          <NavigationItemMenu
-            to="#"
-            text="À Propos"
-            index={1}
-            activeIndex={activeIndex}
-            onClick={handleItemClick}
-          />
-          <NavigationItemMenu
-            to="#"
-            text="Top Place"
-            index={2}
-            activeIndex={activeIndex}
-            onClick={handleItemClick}
-          />
-          <NavigationItemMenu
-            to="#"
-            text="Contact"
-            index={3}
-            activeIndex={activeIndex}
-            onClick={handleItemClick}
-          />
-        </ul>
-        <div className="navigation__menu--footer">
-          <Button title="Prendre rendez-vous" />
-        </div>
-      </div>
-      <div className="brief">
-        <div className="brief__wrapper">
-          <p className="brief__text">
-            <span>
-              <MdTravelExplore />
-            </span>
-            La destination des Skyline
-          </p>
-          <h1 className="brief__title">
-            Les voyages ouvrent la voie à la création de souvenirs
-          </h1>
-          <p className="brief__description">
-            Laissez-nous vous transporter grâce à nos forfaits de vacances
-            fiables et très abordables. Votre imagination est votre seule limite
-            avec cette nouvelle agence de voyage.
-          </p>
+        <div className="brief">
+          <div className="brief__wrapper">
+            <p className="brief__text">
+              <span>
+                <MdTravelExplore />
+              </span>
+              La destination des Skyline
+            </p>
+            <h1 className="brief__title">
+              Les voyages ouvrent la voie à la création de souvenirs
+            </h1>
+            <p className="brief__description">
+              Laissez-nous vous transporter grâce à nos forfaits de vacances
+              fiables et très abordables. Votre imagination est votre seule
+              limite avec cette nouvelle agence de voyage.
+            </p>
 
-          <Button title="Prendre rendez-vous" />
+            <Button title="Prendre rendez-vous" />
+          </div>
+          <div className="brief__wrapper">
+            <img src={Travel} alt="" className="brief__wrapper--image" />
+            <div className="brief__croch--left"></div>
+            <div className="brief__croch--right"></div>
+            {/* <div className="brief__aesthetic"></div> */}
+          </div>
+          <div className="brief__wrapper"></div>
         </div>
-        <div className="brief__wrapper">
-          <img src={Travel} alt="" className="brief__wrapper--image" />
-          <div className="brief__croch--left"></div>
-          <div className="brief__croch--right"></div>
-          {/* <div className="brief__aesthetic"></div> */}
-        </div>
-        <div className="brief__wrapper"></div>
+      </section>
+      <div className={`overlay ${active ? "active" : ""}`} onClick={() => setActive(false)}>
+        
       </div>
-    </section>
+    </div>
   );
 }
 
