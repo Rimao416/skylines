@@ -1,6 +1,7 @@
 // import React from 'react'
 // import { IoSearchSharp } from "react-icons/io5";
 // import { CiMenuBurger } from "react-icons/ci";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import Travel from "../assets/image_2.jpg";
@@ -8,6 +9,10 @@ import { MdTravelExplore } from "react-icons/md";
 // import { BiPlanet } from "react-icons/bi";
 import Button from "../components/Button";
 import { useState } from "react";
+import Features from "../components/Features";
+import { cardsData } from "../constant/CardData";
+import Card from "../components/Card";
+// import Card from "../components/Card";
 function Home() {
   interface NavigationItemProps {
     to: string;
@@ -58,7 +63,7 @@ function Home() {
     </li>
   );
   return (
-    <div className="app">
+    <>
       <section className="header">
         <div className="navigation">
           <img src="/SKY_3.png" alt="" className="navigation__logo" />
@@ -168,10 +173,43 @@ function Home() {
           <div className="brief__wrapper"></div>
         </div>
       </section>
-      <div className={`overlay ${active ? "active" : ""}`} onClick={() => setActive(false)}>
-        
-      </div>
-    </div>
+      <section className="features">
+        <section className="features__about">
+          <Features
+            icon={<MdTravelExplore />}
+            title="2m+ Tickets sold"
+            description="Laissez-nous vous transporter à travers l’agence de voyage de vos souvenirs"
+          />
+          <Features
+            icon={<MdTravelExplore />}
+            title="1000+ hiking"
+            description="Laissez-nous vous transporter à travers l’agence de voyage de vos souvenirs"
+          />
+          <Features
+            icon={<MdTravelExplore />}
+            title="4.9 Star reviews"
+            description="Laissez-nous vous transporter à travers l’agence de voyage de vos souvenirs"
+          />
+        </section>
+        <section className="features__goals">
+          <div className="features__goals--title">
+            <h1>Nous fournissons la meilleure solution pour vos vacances</h1>
+          </div>
+
+          <div className="features__goals--card">
+            {cardsData.map((data, index) => (
+              <Card key={index} {...data} />
+            ))}
+          </div>
+
+          
+        </section>
+      </section>
+      <div
+        className={`overlay ${active ? "active" : ""}`}
+        onClick={() => setActive(false)}
+      ></div>
+    </>
   );
 }
 

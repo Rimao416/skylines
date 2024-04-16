@@ -1,0 +1,52 @@
+.card {
+  font-size: 14px;
+  flex-basis: 33.3%;
+  @include respond(tab-port) {
+    flex-basis: 100%;
+  }
+  &__icon {
+    font-size: 4rem;
+  }
+  &__title {
+    font-size: 16px;
+    text-transform: capitalize;
+    // margin-bottom: 10px;
+    margin-bottom: 1rem;
+  }
+  &__description {
+    font-size: 14px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  h5 {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  &__goals {
+    &--text {
+      display: block;
+      // span {
+      //   // display: flex;
+      //   // align-items: center;
+      // }
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+        // margin-bottom: 10px;
+      }
+    }
+    // display: flex;
+    // flex-direction: row;
+    // gap: 1rem;
+  }
+  &__more{
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    font-weight: bold;
+    align-items: center;
+    text-transform: uppercase;
+    svg{
+      font-size: 1.5rem;
+    }
+  }
+}
