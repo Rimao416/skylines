@@ -443,6 +443,10 @@
     &--card {
       display: flex;
       justify-content: space-between;
+      @include respond(tab-port) {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
       gap: 4rem;
 
 
