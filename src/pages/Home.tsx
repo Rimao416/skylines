@@ -15,6 +15,9 @@ import User_3 from "../assets/user_6.jpg";
 import User_4 from "../assets/user_7.jpg";
 import User_5 from "../assets/user_5.jpg";
 
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+
 import { MdTravelExplore } from "react-icons/md";
 // import { BiPlanet } from "react-icons/bi";
 import Button from "../components/Button";
@@ -24,6 +27,8 @@ import { cardsData } from "../constant/CardData";
 import Card from "../components/Card";
 import { GalleriesData } from "../constant/GalleryData";
 import Gallery from "../components/Gallery";
+import { PopularData } from "../constant/PopularData";
+import Popular from "../components/Popular";
 // import Card from "../components/Card";
 
 interface titleProps {
@@ -50,6 +55,7 @@ const Title: React.FC<titleProps> = ({ title, description }) => {
     </div>
   );
 };
+
 function Home() {
   interface NavigationItemProps {
     to: string;
@@ -290,10 +296,39 @@ function Home() {
         </div>
       </section>
       <section className="popular">
-        <Title title="Les destinations les plus populaires" 
-        description="Découvrez les destinations les plus en vogue à travers le monde sur notre site dédié aux voyageurs passionnés."
+        <Title
+          title="Les destinations les plus populaires"
+          description="Découvrez les destinations les plus en vogue à travers le monde sur notre site dédié aux voyageurs passionnés."
         />
-        <h1>DFSD</h1>
+        <div className="popular__destination">
+          <Splide
+            aria-label="Popular destinations"
+            options={{
+              type: "loop",
+              start: 1,
+              gap: "3rem",
+              perPage: 3,
+              perMove: 1,
+              pagination: false,
+              arrows: false,
+              // padding:"5rem",
+            }}
+          >
+            {PopularData.map((data, index) => (
+              <SplideSlide key={index}>
+                {/* <div className="popularity">
+                  <div className="popularity__card">
+                    <h1>Usa</h1>
+                    <p>1000/nuits</p>
+                  </div>
+                  <img src="https://images.pexels.com/photos/726484/pexels-photo-726484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="popularity__image" />
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate ducimus molestiae vel saepe earum corporis. Molestias accusantium totam quae dolore deleniti. Doloremque magni dolor officiis sed. Labore itaque officiis amet?</p>
+                </div> */}
+                <Popular key={index} {...data} />
+              </SplideSlide>
+            ))}
+          </Splide>
+        </div>
       </section>
       <div
         className={`overlay ${active ? "active" : ""}`}

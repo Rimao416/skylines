@@ -1,6 +1,7 @@
 
 interface ButtonProps {
     title:string,
+    
 
 }
 
