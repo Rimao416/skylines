@@ -1,5 +1,5 @@
 import React from "react";
-import {  MdArrowOutward } from "react-icons/md";
+import { MdArrowOutward } from "react-icons/md";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { CardData } from "../constant/CardData";
@@ -9,10 +9,7 @@ import { CardData } from "../constant/CardData";
 //   children: React.ReactNode;
 // }
 
-
-
-
-const Card: React.FC<CardData> = ({ icon, title,description, goals }) => {
+const Card: React.FC<CardData> = ({ icon, title, description, goals }) => {
   return (
     <div className="card">
       <span className="card__icon">{icon}</span>
@@ -25,9 +22,9 @@ const Card: React.FC<CardData> = ({ icon, title,description, goals }) => {
           </span>
         ))}
         <div className="card__more">
-            <MdArrowOutward />
-            <span>Voir plus</span>
-          </div>
+          <MdArrowOutward />
+          <span>Voir plus</span>
+        </div>
       </div>
     </div>
   );

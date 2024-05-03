@@ -4,7 +4,17 @@
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { MdArrowOutward } from "react-icons/md";
 import Travel from "../assets/image_2.jpg";
+import Details_1 from "../assets/details_1.jpg";
+import Details_2 from "../assets/details_2.jpg";
+import { IoIosStar } from "react-icons/io";
+import User_1 from "../assets/user_1.jpg";
+import User_2 from "../assets/user_4.jpg";
+import User_3 from "../assets/user_6.jpg";
+import User_4 from "../assets/user_7.jpg";
+import User_5 from "../assets/user_5.jpg";
+
 import { MdTravelExplore } from "react-icons/md";
 // import { BiPlanet } from "react-icons/bi";
 import Button from "../components/Button";
@@ -12,7 +22,34 @@ import { useState } from "react";
 import Features from "../components/Features";
 import { cardsData } from "../constant/CardData";
 import Card from "../components/Card";
+import { GalleriesData } from "../constant/GalleryData";
+import Gallery from "../components/Gallery";
 // import Card from "../components/Card";
+
+interface titleProps {
+  title: string;
+  description?: string;
+}
+
+// const Gallery: React.FC<galleryProps> = ({ place, description, image }) => {
+//   return (
+//     <div className="gallery__box">
+//       <img src={image} alt="" />
+//       <h3>{place}</h3>
+//       <p>{description}</p>
+//     </div>
+//   );
+// };
+
+const Title: React.FC<titleProps> = ({ title, description }) => {
+  return (
+    <div className="features__goals--title">
+      <h1>{title}</h1>
+
+      {description && <p>{description}</p>}
+    </div>
+  );
+};
 function Home() {
   interface NavigationItemProps {
     to: string;
@@ -192,18 +229,71 @@ function Home() {
           />
         </section>
         <section className="features__goals">
-          <div className="features__goals--title">
-            <h1>Nous fournissons la meilleure solution pour vos vacances</h1>
-          </div>
+          <Title title="Nous fournissons la meilleure solution pour vos vacances" />
 
           <div className="features__goals--card">
             {cardsData.map((data, index) => (
               <Card key={index} {...data} />
             ))}
           </div>
-
-          
         </section>
+      </section>
+      <section className="gallery">
+        <Title
+          title="Galerie du tour du monde"
+          description="Rendre les voyages accessibles à tous"
+        />
+        <div className="gallery__container">
+          {GalleriesData.map((data, index) => (
+            <Gallery key={index} {...data} />
+          ))}
+        </div>
+        <div className="gallery__button">
+          <Button title="Voir plus" />
+        </div>
+      </section>
+      <section className="visits">
+        <div className="visits__wrapper">
+          <h1>Faire paraître le monde plus petit depuis</h1>
+          <p className="visits__description">
+            Faire paraître le monde plus petit depuis’ est votre portail vers
+            l'exploration des merveilles de notre planète à travers des
+            perspectives uniques. Plongez dans des récits captivants, des guides
+            pratiques et des conseils inspirants qui vous rapprocheront des
+            cultures, des destinations et des expériences les plus fascinantes
+            du monde
+          </p>
+          <div className="visits__user">
+            <div className="visits__user--images">
+              <img src={User_1} alt="" className="visits__image" />
+              <img src={User_2} alt="" className="visits__image" />
+              <img src={User_3} alt="" className="visits__image" />
+              <img src={User_4} alt="" className="visits__image" />
+              <img src={User_5} alt="" className="visits__image" />
+            </div>
+            <div className="visits__user--text">
+              <p className="visits__user--title">Nos Clients Satisfaits</p>
+              <span className="visits__user--subtitle">
+                <IoIosStar /> 4.9 (1000+ visites)
+              </span>
+            </div>
+            {/* <p>lkjlj</p> */}
+          </div>
+          <div className="visits__button">
+            <MdArrowOutward />
+            <span>Voir plus</span>
+          </div>
+        </div>
+        <div className="visits__wrapper">
+          <img src={Details_1} alt="" className="details__wrapper--image" />
+          <img src={Details_2} alt="" className="details__wrapper--image" />
+        </div>
+      </section>
+      <section className="popular">
+        <Title title="Les destinations les plus populaires" 
+        description="Découvrez les destinations les plus en vogue à travers le monde sur notre site dédié aux voyageurs passionnés."
+        />
+        <h1>DFSD</h1>
       </section>
       <div
         className={`overlay ${active ? "active" : ""}`}
