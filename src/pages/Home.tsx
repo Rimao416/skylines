@@ -6,6 +6,10 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 import Travel from "../assets/image_2.jpg";
+import Travel_2 from "../assets/image_3.jpg";
+import Travel_3 from "../assets/image_4.jpg";
+import Travel_4 from "../assets/image_5.jpg";
+import Travel_5 from "../assets/image_6.jpg";
 import Details_1 from "../assets/details_1.jpg";
 import Details_2 from "../assets/details_2.jpg";
 import { IoIosStar } from "react-icons/io";
@@ -15,8 +19,11 @@ import User_3 from "../assets/user_6.jpg";
 import User_4 from "../assets/user_7.jpg";
 import User_5 from "../assets/user_5.jpg";
 
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 import { MdTravelExplore } from "react-icons/md";
 // import { BiPlanet } from "react-icons/bi";
@@ -29,22 +36,15 @@ import { GalleriesData } from "../constant/GalleryData";
 import Gallery from "../components/Gallery";
 import { PopularData } from "../constant/PopularData";
 import Popular from "../components/Popular";
+import { FaqData } from "../constant/faqData";
+import Faq from "../components/Faq";
+import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 // import Card from "../components/Card";
 
 interface titleProps {
   title: string;
   description?: string;
 }
-
-// const Gallery: React.FC<galleryProps> = ({ place, description, image }) => {
-//   return (
-//     <div className="gallery__box">
-//       <img src={image} alt="" />
-//       <h3>{place}</h3>
-//       <p>{description}</p>
-//     </div>
-//   );
-// };
 
 const Title: React.FC<titleProps> = ({ title, description }) => {
   return (
@@ -57,6 +57,16 @@ const Title: React.FC<titleProps> = ({ title, description }) => {
 };
 
 function Home() {
+  const [open, setOpen] = useState<number | null>(null);
+  const Toggle = (i: number) => {
+    // setActive(!active);
+    console.log(`Toggle clicked for question index: ${i}`);
+    if (open === i) {
+      setOpen(null);
+    } else {
+      setOpen(i);
+    }
+  };
   interface NavigationItemProps {
     to: string;
     text: string;
@@ -207,12 +217,47 @@ function Home() {
 
             <Button title="Prendre rendez-vous" />
           </div>
-          <div className="brief__wrapper">
-            <img src={Travel} alt="" className="brief__wrapper--image" />
-            <div className="brief__croch--left"></div>
-            <div className="brief__croch--right"></div>
-            {/* <div className="brief__aesthetic"></div> */}
-          </div>
+
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            effect={"slide"}
+            speed={2000}
+            autoplay={{
+              delay: 1000,
+              pauseOnMouseEnter: true,
+              disableOnInteraction: false,
+              stopOnLastSlide: true,
+              // disableOnInteraction: false,
+            }}
+            loop={true}
+            modules={[EffectFade, Autoplay, Pagination]}
+            className="brief__wrapper"
+          >
+            <SwiperSlide>
+              <img src={Travel} alt="" className="brief__wrapper--image" />
+            </SwiperSlide>
+          
+          
+          
+            <SwiperSlide>
+              <img src={Travel_2} alt="" className="brief__wrapper--image" />
+            </SwiperSlide>
+          
+            <SwiperSlide>
+              <img src={Travel_3} alt="" className="brief__wrapper--image" />
+            </SwiperSlide>
+          
+            <SwiperSlide>
+              <img src={Travel_4} alt="" className="brief__wrapper--image" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Travel_5} alt="" className="brief__wrapper--image" />
+            </SwiperSlide>
+          
+          </Swiper>
+
+          {/* <div className="brief__aesthetic"></div> */}
           <div className="brief__wrapper"></div>
         </div>
       </section>
@@ -301,21 +346,14 @@ function Home() {
           description="Découvrez les destinations les plus en vogue à travers le monde sur notre site dédié aux voyageurs passionnés."
         />
         <div className="popular__destination">
-          <Splide
-            aria-label="Popular destinations"
-            options={{
-              type: "loop",
-              start: 1,
-              gap: "3rem",
-              perPage: 3,
-              perMove: 1,
-              pagination: false,
-              arrows: false,
-              // padding:"5rem",
-            }}
+          <Swiper
+            spaceBetween={40}
+            slidesPerView={3}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
           >
             {PopularData.map((data, index) => (
-              <SplideSlide key={index}>
+              <SwiperSlide>
                 {/* <div className="popularity">
                   <div className="popularity__card">
                     <h1>Usa</h1>
@@ -325,10 +363,21 @@ function Home() {
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate ducimus molestiae vel saepe earum corporis. Molestias accusantium totam quae dolore deleniti. Doloremque magni dolor officiis sed. Labore itaque officiis amet?</p>
                 </div> */}
                 <Popular key={index} {...data} />
-              </SplideSlide>
+              </SwiperSlide>
             ))}
-          </Splide>
+          </Swiper>
         </div>
+      </section>
+      <section className="faq">
+        <Title title="FAQ" description="Foire aux questions" />
+        {FaqData.map((data, index) => (
+          <Faq
+            key={index}
+            {...data}
+            onClick={() => Toggle(index)}
+            open={open === index}
+          />
+        ))}
       </section>
       <div
         className={`overlay ${active ? "active" : ""}`}
