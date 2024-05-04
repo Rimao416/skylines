@@ -16,9 +16,9 @@ export const fadeIn = (
         type: "tween",
         duration: 1.2,
         delay: delay,
-        //   ease: "easeOut",
+          ease: "easeOut",
         //   ease: [0.6, 0.01, -0.05, 0.9],
-        ease: [0.25, 0.25, 0.25, 0.85],
+        // ease: [0.25, 0.25, 0.25, 0.85],
       },
     },
   };
