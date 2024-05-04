@@ -20,7 +20,7 @@ import User_4 from "../assets/user_7.jpg";
 import User_5 from "../assets/user_5.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { motion, easeInOut } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
