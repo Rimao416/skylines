@@ -20,6 +20,7 @@ import User_4 from "../assets/user_7.jpg";
 import User_5 from "../assets/user_5.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion, easeInOut } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -39,6 +40,7 @@ import Popular from "../components/Popular";
 import { FaqData } from "../constant/faqData";
 import Faq from "../components/Faq";
 import { Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { fadeIn } from "../variants";
 // import Card from "../components/Card";
 
 interface titleProps {
@@ -206,18 +208,45 @@ function Home() {
               </span>
               La destination des Skyline
             </p>
-            <h1 className="brief__title">
+            <motion.h1
+              className="brief__title"
+              variants={fadeIn("down", 0.2)}
+              whileInView={"show"}
+              initial="hidden"
+              animate="visible"
+              viewport={{ once: true, amount: 0.6 }}
+            >
+              Des vacances fiables, des destinations fiables
+            </motion.h1>
+            {/* <h1 className="brief__title">
               Les voyages ouvrent la voie à la création de souvenirs
-            </h1>
-            <p className="brief__description">
+            </h1> */}
+
+            <motion.p
+              className="brief__description"
+              variants={fadeIn("down", 0.4)}
+              whileInView={"show"}
+              initial="hidden"
+              animate="visible"
+              viewport={{ once: true, amount: 0.6 }}
+            >
               Laissez-nous vous transporter grâce à nos forfaits de vacances
               fiables et très abordables. Votre imagination est votre seule
               limite avec cette nouvelle agence de voyage.
-            </p>
+            </motion.p>
 
-            <Button title="Prendre rendez-vous" />
+            <motion.div
+              variants={fadeIn("down", 0.6)}
+              whileInView={"show"}
+              initial="hidden"
+              animate="visible"
+              viewport={{ once: true, amount: 0.6 }}
+            >
+              <Button title="Prendre rendez-vous" />
+            </motion.div>
           </div>
-          <div className="brief__wrapper">
+          
+          <motion.div className="brief__wrapper" variants={fadeIn("up", 0.4)} whileInView={"show"} initial="hidden" animate="visible" viewport={{ once: true, amount: 0.4 }}>
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -255,7 +284,7 @@ function Home() {
             </Swiper>
             <div className="brief__croch--left"></div>
             <div className="brief__croch--right"></div>
-          </div>
+          </motion.div>
 
           {/* <div className="brief__aesthetic"></div> */}
           <div className="brief__wrapper"></div>
