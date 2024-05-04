@@ -351,6 +351,20 @@ function Home() {
             slidesPerView={3}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+              },
+              480: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 1,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
           >
             {PopularData.map((data, index) => (
               <SwiperSlide>
