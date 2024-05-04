@@ -232,8 +232,10 @@
       position: relative;
       width: 100% !important;
       height: 70vh !important;
-      
+
       border: 3px solid rgb(177, 173, 172);
+      
+      
       img {
         // width: 100%;
         width: calc(100% - 50px) !important;
@@ -263,6 +265,7 @@
       opacity: 0.5;
       z-index: 150;
     }
+
   }
   &__title {
     font-size: 4.5rem;
@@ -293,68 +296,68 @@
     margin-bottom: 2rem;
     font-size: 14px;
   }
-  // &__croch {
-  //   &--left {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //     z-index: -1;
-  //     background-color: transparent;
-  //     &::before {
-  //       position: absolute;
-  //       content: "";
-  //       top: -10px;
-  //       left: -10px;
-  //       width: 8rem;
-  //       height: 8rem;
-  //       border-left: 10px solid $black-color;
-  //       border-top: 10px solid $black-color;
-  //       // background-color: rgb(0, 0, 0);
-  //     }
-  //     &::after {
-  //       position: absolute;
-  //       content: "";
-  //       bottom: -10px;
-  //       right: -10px;
-  //       width: 8rem;
-  //       height: 8rem;
-  //       border-right: 10px solid $black-color;
-  //       border-bottom: 10px solid $black-color;
-  //     }
-  //   }
-  //   &--right {
-  //     position: absolute;
-  //     background-color: transparent;
-  //     top: 0;
-  //     right: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //     z-index: -1;
-  //     &::before {
-  //       position: absolute;
-  //       content: "";
-  //       top: -10px;
-  //       right: -10px;
-  //       width: 8rem;
-  //       height: 8rem;
-  //       border-right: 10px solid $black-color;
-  //       border-top: 10px solid $black-color;
-  //       // background-color: rgb(0, 0, 0);
-  //     }
-  //     &::after {
-  //       position: absolute;
-  //       content: "";
-  //       bottom: -10px;
-  //       left: -10px;
-  //       width: 8rem;
-  //       height: 8rem;
-  //       border-left: 10px solid $black-color;
-  //       border-bottom: 10px solid;
-  //     }
-  //   }
-  // }
+  &__croch {
+    &--left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: transparent;
+      &::before {
+        position: absolute;
+        content: "";
+        top: -10px;
+        left: -10px;
+        width: 8rem;
+        height: 8rem;
+        border-left: 10px solid $black-color;
+        border-top: 10px solid $black-color;
+        // background-color: rgb(0, 0, 0);
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -10px;
+        right: -10px;
+        width: 8rem;
+        height: 8rem;
+        border-right: 10px solid $black-color;
+        border-bottom: 10px solid $black-color;
+      }
+    }
+    &--right {
+      position: absolute;
+      background-color: transparent;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      &::before {
+        position: absolute;
+        content: "";
+        top: -10px;
+        right: -10px;
+        width: 8rem;
+        height: 8rem;
+        border-right: 10px solid $black-color;
+        border-top: 10px solid $black-color;
+        // background-color: rgb(0, 0, 0);
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -10px;
+        left: -10px;
+        width: 8rem;
+        height: 8rem;
+        border-left: 10px solid $black-color;
+        border-bottom: 10px solid;
+      }
+    }
+  }
   &_details {
     margin-top: 2rem;
     background-color: pink;
@@ -365,6 +368,7 @@
     width: 100%;
     height: 100%;
   }
+  
   @include respond(tab-land) {
     padding: 0 16px 0 16px;
 
@@ -384,6 +388,10 @@
         display: none;
       }
     }
+  }
+  &__background {
+    position: absolute !important;
+
   }
 }
 .overlay {
@@ -564,7 +572,7 @@
   }
   display: flex;
   justify-content: space-between;
-  
+
   // gap: 4rem;
   @include respond(tab-port) {
     flex-direction: column;
@@ -574,7 +582,7 @@
     position: relative;
     &:nth-child(2) {
       position: relative;
-    
+
       img {
         width: 300px;
         height: 300px;
@@ -588,7 +596,7 @@
           height: 100%;
         }
         transition: all 0.5s ease;
-        &:hover{
+        &:hover {
           transform: skew(-6deg, 0deg) scale(1.1);
           z-index: 1500 !important;
         }
@@ -599,14 +607,12 @@
           position: absolute;
           right: 0;
           top: 0;
-
         }
         &:last-child {
           z-index: 1;
           position: absolute;
           bottom: 0;
           left: 0;
-        
         }
       }
     }
@@ -629,11 +635,11 @@
       position: inherit;
       height: 100%;
     }
-    &--title{
-    font-weight: 600;
-    font-size: 14px;
+    &--title {
+      font-weight: 600;
+      font-size: 14px;
     }
-    &--subtitle{
+    &--subtitle {
       font-weight: 400;
       font-size: 12px;
     }
@@ -646,24 +652,24 @@
       overflow: hidden;
     }
   }
-  &__button{
+  &__button {
     font-weight: bold;
     align-items: center;
     text-transform: uppercase;
-    svg{
+    svg {
       font-size: 1.5rem;
     }
   }
 }
 
-.popular{
+.popular {
   padding: 0 8rem 0 8rem;
   @include respond(tab-port) {
     padding: 0 2rem 0 2rem;
   }
   margin-top: 8rem;
 }
-.faq{
+.faq {
   padding: 0 8rem 0 8rem;
   @include respond(tab-port) {
     padding: 0 2rem 0 2rem;
@@ -671,7 +677,6 @@
   margin-top: 8rem;
   font-size: 14px;
 }
-
 
 .swiper {
   position: relative;

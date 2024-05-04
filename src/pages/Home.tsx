@@ -217,45 +217,45 @@ function Home() {
 
             <Button title="Prendre rendez-vous" />
           </div>
+          <div className="brief__wrapper">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              effect={"slide"}
+              speed={2000}
+              autoplay={{
+                delay: 1000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+                stopOnLastSlide: true,
+                // disableOnInteraction: false,
+              }}
+              loop={true}
+              modules={[EffectFade, Autoplay, Pagination]}
+              className="brief__background"
+            >
+              <SwiperSlide>
+                <img src={Travel} alt="" className="brief__wrapper--image" />
+              </SwiperSlide>
 
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            effect={"slide"}
-            speed={2000}
-            autoplay={{
-              delay: 1000,
-              pauseOnMouseEnter: true,
-              disableOnInteraction: false,
-              stopOnLastSlide: true,
-              // disableOnInteraction: false,
-            }}
-            loop={true}
-            modules={[EffectFade, Autoplay, Pagination]}
-            className="brief__wrapper"
-          >
-            <SwiperSlide>
-              <img src={Travel} alt="" className="brief__wrapper--image" />
-            </SwiperSlide>
-          
-          
-          
-            <SwiperSlide>
-              <img src={Travel_2} alt="" className="brief__wrapper--image" />
-            </SwiperSlide>
-          
-            <SwiperSlide>
-              <img src={Travel_3} alt="" className="brief__wrapper--image" />
-            </SwiperSlide>
-          
-            <SwiperSlide>
-              <img src={Travel_4} alt="" className="brief__wrapper--image" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Travel_5} alt="" className="brief__wrapper--image" />
-            </SwiperSlide>
-          
-          </Swiper>
+              <SwiperSlide>
+                <img src={Travel_2} alt="" className="brief__wrapper--image" />
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <img src={Travel_3} alt="" className="brief__wrapper--image" />
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <img src={Travel_4} alt="" className="brief__wrapper--image" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Travel_5} alt="" className="brief__wrapper--image" />
+              </SwiperSlide>
+            </Swiper>
+            <div className="brief__croch--left"></div>
+            <div className="brief__croch--right"></div>
+          </div>
 
           {/* <div className="brief__aesthetic"></div> */}
           <div className="brief__wrapper"></div>
@@ -354,14 +354,6 @@ function Home() {
           >
             {PopularData.map((data, index) => (
               <SwiperSlide>
-                {/* <div className="popularity">
-                  <div className="popularity__card">
-                    <h1>Usa</h1>
-                    <p>1000/nuits</p>
-                  </div>
-                  <img src="https://images.pexels.com/photos/726484/pexels-photo-726484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="popularity__image" />
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate ducimus molestiae vel saepe earum corporis. Molestias accusantium totam quae dolore deleniti. Doloremque magni dolor officiis sed. Labore itaque officiis amet?</p>
-                </div> */}
                 <Popular key={index} {...data} />
               </SwiperSlide>
             ))}
