@@ -218,17 +218,13 @@ function Home() {
             >
               Des vacances fiables, des destinations fiables
             </motion.h1>
-            {/* <h1 className="brief__title">
-              Les voyages ouvrent la voie à la création de souvenirs
-            </h1> */}
-
             <motion.p
               className="brief__description"
               variants={fadeIn("down", 0.4)}
               whileInView={"show"}
               initial="hidden"
               animate="visible"
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
             >
               Laissez-nous vous transporter grâce à nos forfaits de vacances
               fiables et très abordables. Votre imagination est votre seule
